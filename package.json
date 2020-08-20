@@ -20,7 +20,7 @@
     "uuid": "^8.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",initial commitinitial commitinitial commit
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "predeploy": "npm run build",
