@@ -1,0 +1,45 @@
+{
+  "name": "redux-todolist",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "http://indiraaridni.github.io/redux_todolist",
+  "dependencies": {
+    "@reduxjs/redux-devtools-extension-fork": "0.0.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "react-scripts": "3.4.3",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "tsutils": "^3.17.1",
+    "typescript": "^2.8.0-dev.20180227",
+    "uuid": "^8.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",initial commitinitial commitinitial commit
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
