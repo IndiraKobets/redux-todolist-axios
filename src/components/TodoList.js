@@ -14,6 +14,7 @@ function TodoList(props) {
     props.updateTodo(todo.id, editTodo);
     setIsEditMode(false);
   };
+
   const styleDone = todo.done ? {textDecoration: 'line-through', listStyle: 'none' } : {textDecoration: 'none', listStyle: 'none' }
 
   return (
@@ -49,7 +50,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addTodo: (todo) => dispatch({type: 'TODO_ADD', payload: todo}),
   deleteTodo: (todoId) => dispatch({type: 'DELETE_TODO', payload: todoId}),
   updateTodo: (todoId, title) => dispatch({type: 'TODO_UPDATE', payload: todoId, title: title}),
   todoDone: (todoId) => dispatch({type: 'TODO_DONE', payload: todoId}),
