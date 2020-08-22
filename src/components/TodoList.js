@@ -30,6 +30,7 @@ function TodoList(props) {
             </>
         ) : (
             <>
+
               {todo.title}
               <button onClick={() => props.todoDone(todo.id)}>{todo.done ? 'Undone' : 'Done'}</button>
               <button onClick={() => props.deleteTodo(todo.id)}>Delete</button>

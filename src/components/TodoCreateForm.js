@@ -12,8 +12,8 @@ function TodoCreateForm(props) {
 
   return (
       <div>
-        <input type="text" value={newTodo} onChange={e => setNewTodo(e.target.value)}/>
-        <button onClick={addButtonHandler}>Add New Todo</button>
+        <input  type="text" value={newTodo} onChange={e => setNewTodo(e.target.value)}/>
+        <button onClick={addButtonHandler}> Add New Todo</button>
 
       </div>
   );
