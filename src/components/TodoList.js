@@ -1,61 +1,32 @@
-import React, {useState} from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-
+import TodoListItem from "./TodoListItem";
+import {getTodos} from "../redux/action";
 
 function TodoList(props) {
 
-  const {todo, index, length} = props;
+    useEffect(() => {
+        console.log('Hello from useffect')
+        props.getList()
+    }, []);
 
-  const [editTodo, setEditTodo] = useState(todo.title);
-  const [isEditMode, setIsEditMode] = useState(false);
-
-
-  const updateTodo = () => {
-    props.updateTodo(todo.id, editTodo);
-    setIsEditMode(false);
-  };
-
-  const styleDone = todo.done ? {textDecoration: 'line-through', listStyle: 'none' } : {textDecoration: 'none', listStyle: 'none' }
-
-  return (
-      <div>
-        <ul>
-
-          <li style={styleDone}>
-
-        {isEditMode ? (
-            <>
-              <input type='text' value={editTodo} onChange={e => setEditTodo(e.target.value)}/>
-              <button onClick={updateTodo}>Save</button>
-            </>
-        ) : (
-            <>
-
-              {todo.title}
-              <button onClick={() => props.todoDone(todo.id)}>{todo.done ? 'Undone' : 'Done'}</button>
-              <button onClick={() => props.deleteTodo(todo.id)}>Delete</button>
-              <button onClick={() => setIsEditMode(true)}>Edit</button>
-              <button onClick={() => props.upTodo(index)} disabled={index === 0}>↑</button>
-              <button onClick={() => props.downTodo(index)} disabled={index === length - 1 }>↓</button>
-
-            </>)}
-
-          </li>
-        </ul>
-      </div>
-  );
+    return (
+        <div>
+            {props.todos.map((el, i) =>
+                <TodoListItem todo={el}
+                              key={el.id}
+                              index={i}
+                              length={props.todos.length}/>)}
+        </div>
+    );
 }
 
 const mapStateToProps = (state) => ({
-  todos: state.todos
+    todos: state.todos
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  deleteTodo: (todoId) => dispatch({type: 'DELETE_TODO', payload: todoId}),
-  updateTodo: (todoId, title) => dispatch({type: 'TODO_UPDATE', payload: todoId, title: title}),
-  todoDone: (todoId) => dispatch({type: 'TODO_DONE', payload: todoId}),
-  upTodo: (index) => dispatch({ type: 'TODO_UP', payload: index}),
-  downTodo: (index) => dispatch({ type: 'TODO_DOWN', payload: index})
+    getList: () => dispatch(getTodos())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

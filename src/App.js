@@ -9,22 +9,16 @@ function App(props) {
     return (
         <div className="App">
             <TodoCreateForm/>
-            {props.todos.map((el, i) =>
-                <TodoList todo={el}
-                          key={el.id}
-                          index={i}
-                          length={props.todos.length}/>)}
+            <TodoList/>
 
 
         </div>
     );
 }
 
-const mapStateToProps = (state) => ({
-    todos: state.todos
-});
 
-export default connect(mapStateToProps)(App);
+
+export default connect()(App);
 
 
 
