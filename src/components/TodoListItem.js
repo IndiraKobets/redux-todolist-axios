@@ -23,6 +23,7 @@ function TodoListItem(props) {
         <ul>
 
           <li style={styleDone} key={todo.id}>
+
         {isEditMode ? (
             <>
               <input type='text' value={editTodo} onChange={e => setEditTodo(e.target.value)}/>
@@ -30,8 +31,7 @@ function TodoListItem(props) {
             </>
         ) : (
             <>
-
-              {todo.title}
+              {todo.name}
               <button onClick={() => props.todoDone(todo.id)}>{todo.done ? 'Undone' : 'Done'}</button>
               <button onClick={() => props.deleteTodo(todo.id)}>Delete</button>
               <button onClick={() => setIsEditMode(true)}>Edit</button>

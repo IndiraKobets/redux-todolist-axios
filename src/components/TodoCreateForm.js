@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
+import {addTodo} from "../redux/action";
 
 function TodoCreateForm(props) {
 
@@ -24,7 +25,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addTodo: (todo) => dispatch({type: 'TODO_ADD', payload: todo}),
+  addTodo: (newName) => dispatch(addTodo(newName)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoCreateForm);

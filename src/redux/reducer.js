@@ -23,11 +23,17 @@ const initialState = {
 const todo = (state = initialState, action) => {
   switch (action.type) {
 
-    case 'TODO_ADD':
+    case 'GET_TODO':
       return {
         ...state,
-        todos: [...state.todos, { title: action.payload, done: false }]
+        todos: action.payload
       };
+
+    // case 'TODO_ADD':
+    //   return {
+    //     ...state,
+    //     todos: [...state.todos, { title: action.payload, done: false }]
+    //   };
 
     case 'DELETE_TODO':
       const newTodos = state.todos.filter(el => el.id !== action.payload)

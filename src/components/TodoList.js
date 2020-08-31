@@ -14,7 +14,7 @@ function TodoList(props) {
         <div>
             {props.todos.map((el, i) =>
                 <TodoListItem todo={el}
-                              key={el.id}
+                              key={el._id}
                               index={i}
                               length={props.todos.length}/>)}
         </div>
